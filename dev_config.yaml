@@ -1,0 +1,5 @@
+name: ci-backend
+listen: 8000
+db_type: "mysql"
+db_connect_string: "root:zhx123456@/ci_backend?charset=utf8&parseTime=True&loc=Local"
+rdb_connect_string: "redis://:@localhost:6379/1"
