@@ -12,7 +12,10 @@ type UserDaoImpl struct {
 var DefaulUserDaoImpl *UserDaoImpl
 
 func NewUserImpl(wand *utils.Wand) {
-	DefaulUserDaoImpl.wand = wand
+	w := &UserDaoImpl{
+		wand: wand,
+	}
+	DefaulUserDaoImpl = w
 }
 
 func (u *UserDaoImpl) Hello(ctx context.Context) {

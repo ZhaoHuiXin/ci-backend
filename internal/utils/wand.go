@@ -13,7 +13,9 @@ type Wand struct {
 var WandInstance *Wand
 
 func NewWand(db *gorm.DB, rds *redis.Client) *Wand {
-	WandInstance.DB = db
-	WandInstance.RDS = rds
+	w := &Wand{
+		DB:db,
+		RDS:rds}
+	WandInstance = w
 	return WandInstance
 }
