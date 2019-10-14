@@ -1,8 +1,6 @@
 package utils
 
 import (
-	"fmt"
-
 	"github.com/go-redis/redis"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -13,7 +11,6 @@ import (
 
 func GetDB(dbType, connectAddr string) (db *gorm.DB, err error) {
 	// db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True&loc=Local")
-	fmt.Println("11111 ", dbType, connectAddr)
 	//once.Do(func() {
 	db, err = gorm.Open(dbType, connectAddr)
 	if err != nil {
@@ -27,8 +24,6 @@ func GetDB(dbType, connectAddr string) (db *gorm.DB, err error) {
 
 func GetRDS(redisURL string) (redisClient *redis.Client, err error) {
 	// opt, err := redis.ParseURL("redis://:qwerty@localhost:6379/1")
-	fmt.Println("22222 ", redisURL)
-	//once.Do(func() {
 	optConfig, err := redis.ParseURL(redisURL)
 	if err != nil {
 		log.Fatalf("Failed to open RDS, error: %v", err)
@@ -40,6 +35,5 @@ func GetRDS(redisURL string) (redisClient *redis.Client, err error) {
 		log.Fatalf("Redis init failed, %s", err)
 		return
 	}
-	//})
 	return redisClient, nil
 }
