@@ -8,3 +8,7 @@ import (
 func Hello (c *gin.Context){
 	c.String(http.StatusOK, "hello gin")
 }
+
+func Test (c *gin.Context){
+	c.String(http.StatusOK, "hello test")
+}
